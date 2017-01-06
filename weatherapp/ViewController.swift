@@ -10,6 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var cityName: UITextField!
+    @IBOutlet weak var cityTemp: UILabel!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    
+    @IBAction func getData(_ sender: Any) {
+    }
+    
+    func weatherData(urlString: String)
+    {
+    
+    }
+    
+    func setLabels
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
