@@ -8,39 +8,45 @@
 
 import UIKit
 import Foundation
+import MapKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        weatherData(urlString: "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c2c72d0b0034df8d3317873ed16c1c0a")
-        // Do any additional setup after loading the view, typically from a nib.
-    }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     @IBOutlet weak var cityName: UITextField!
     @IBOutlet weak var cityTemp: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
     
     @IBAction func getData(_ sender: Any) {
+        
+        weatherData(urlString: String("http://api.openweathermap.org/data/2.5/weather?q="+(cityName.text)!+"uk&APPID=c2c72d0b0034df8d3317873ed16c1c0a"))
+    }
+    @IBOutlet weak var mymap: MKMapView!
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        weatherData(urlString: "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c2c72d0b0034df8d3317873ed16c1c0a")
+        let location = CLLocationCoordinate2DMake(-27.4, 153.51)
+        
+        let mapspan = MKCoordinateSpanMake(0.1, 0.1)
+        let mapregion = MKCoordinateRegionMake(location, mapspan)
+        
+        self.mymap.setRegion(mapregion, animated:true)
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        // Dispose of any resources that can be recreated.
     }
     
     func weatherData(urlString: String)
     {
-//        let url  = NSURL(string: urlString)
-//        let sess = URLSession.shared
-//        let task = sess.dataTaskWithURL(url! as URL)
-//        {
-//            (data, response, error) in
-//            dispatch_async(dispatch_get_main_queue(){
-//                setLabels(weatherdata:data)})
-//        }
-//        
-                let urlString = "http://api.openweathermap.org/data/2.5/weather?q=\(),uk&APPID=c2c72d0b0034df8d3317873ed16c1c0a"
+    
+                //let urlString = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c2c72d0b0034df8d3317873ed16c1c0a"
         
                 let url = URL(string: urlString)
                 URLSession.shared.dataTask(with:url!)
@@ -58,13 +64,34 @@ class ViewController: UIViewController {
         
                             let currentplace = parsedData["name"] as! String
                             self.cityNameLabel.text = currentplace
+                            print(currentplace)
         
                             let currentConditions = parsedData["main"] as! [String:Any]
                             print("yoylol")
         
                             let currentTemperatureF = currentConditions["temp"] as! Double
                             self.cityTemp.text = String(format: "%0.1f", currentTemperatureF)
-        
+                            print(currentTemperatureF)
+                            
+                            let locate = parsedData["coord"] as! [String:Any]
+                            print("yoy")
+                            
+                            let currentlong = locate["lon"] as! Double
+                            let longitudemm = currentlong
+                            print(longitudemm)
+
+                            let currentlat = locate["lat"] as! Double
+                            let latitudemm = currentlat
+                            print(latitudemm)
+                            
+                            let location = CLLocationCoordinate2DMake(latitudemm, longitudemm)
+                            
+                            let mapspan = MKCoordinateSpanMake(0.1, 0.1)
+                            let mapregion = MKCoordinateRegionMake(location, mapspan)
+                            
+                            self.mymap.setRegion(mapregion, animated:true)
+
+                            
                         }
                         catch let error as NSError
                         {
@@ -74,43 +101,6 @@ class ViewController: UIViewController {
                     
                 }.resume()
     }
-    
-//    func setLabels(weatherdata: NSData )
-//    {
-//        var jsonerror: NSError?
-//        //let data: Data
-//        
-//        //       let data: Data
-//        //let json = try? JSONSerialization.jsonObject(with: weatherdata as Data, options: [])
-//        let json = try JSONSerialization.jsonObject(with:weatherdata as Data, options: []) as! [String: AnyObject]
-//        
-//        
-////        if let dictionary = jsonWithObjectRoot as? [String: Any]
-////        {
-//            if let name  = json["name"] as?String
-//            {
-//                cityNameLabel.text = name
-//            }
-//            if let main = json["main"] as?NSDictionary
-//            {
-//                if let temp = main["temp"] as?Double
-//                {
-//                    cityTemp.text = String(format: " %.1f", arguments:temp)
-//                }
-////            }
-//                
-//                catch error as NSError
-//                {
-//                    print(error)
-//                }
-//        }
-//    }
-//    
-
-
-
-
-
 
 }
 

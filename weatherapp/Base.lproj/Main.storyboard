@@ -46,31 +46,60 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFv-ol-0ur">
-                                <rect key="frame" x="34" y="510" width="104" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFv-ol-0ur">
+                                <rect key="frame" x="34" y="517" width="104" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="Rmy-Yn-YYi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLK-nc-R9n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLK-nc-R9n">
                                 <rect key="frame" x="34" y="577" width="97" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Vfi-NU-VNn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tie-LX-LhX">
+                                <rect key="frame" x="16" y="175" width="343" height="317"/>
+                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s7A-Bg-JCF">
+                                <rect key="frame" x="16" y="175" width="343" height="317"/>
+                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="45M-NY-3Bv">
+                                <rect key="frame" x="16" y="175" width="343" height="317"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="BUK-qD-JJe" firstAttribute="leading" secondItem="tie-LX-LhX" secondAttribute="trailing" constant="-359" id="2W7-aj-vE5"/>
+                            <constraint firstItem="tie-LX-LhX" firstAttribute="top" secondItem="s7A-Bg-JCF" secondAttribute="top" id="36T-Gi-w9b"/>
+                            <constraint firstItem="oFv-ol-0ur" firstAttribute="top" secondItem="tie-LX-LhX" secondAttribute="bottom" constant="25" id="39s-CH-dae"/>
                             <constraint firstItem="dby-xo-cVY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="8y5-8r-kq5"/>
                             <constraint firstItem="tR2-c1-1fQ" firstAttribute="leading" secondItem="dby-xo-cVY" secondAttribute="leading" id="9d8-0i-ELz"/>
                             <constraint firstItem="BUK-qD-JJe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cji-RO-AZO"/>
+                            <constraint firstItem="tie-LX-LhX" firstAttribute="leading" secondItem="s7A-Bg-JCF" secondAttribute="leading" id="Hv9-25-JI0"/>
                             <constraint firstAttribute="bottomMargin" secondItem="BUK-qD-JJe" secondAttribute="bottom" constant="-69" id="IAU-Ur-wKy"/>
+                            <constraint firstItem="45M-NY-3Bv" firstAttribute="leading" secondItem="s7A-Bg-JCF" secondAttribute="leading" id="OwA-KP-7Hq"/>
+                            <constraint firstItem="DLK-nc-R9n" firstAttribute="leading" secondItem="oFv-ol-0ur" secondAttribute="leading" id="Pfg-i6-TXU"/>
+                            <constraint firstItem="tie-LX-LhX" firstAttribute="bottom" secondItem="s7A-Bg-JCF" secondAttribute="bottom" id="QW3-uR-KhZ"/>
                             <constraint firstItem="tR2-c1-1fQ" firstAttribute="trailing" secondItem="dby-xo-cVY" secondAttribute="trailing" id="UjT-Dt-0Fv"/>
+                            <constraint firstItem="DLK-nc-R9n" firstAttribute="top" secondItem="oFv-ol-0ur" secondAttribute="bottom" constant="39" id="XGk-wi-VtS"/>
+                            <constraint firstItem="45M-NY-3Bv" firstAttribute="trailing" secondItem="s7A-Bg-JCF" secondAttribute="trailing" id="aEi-TQ-Mtr"/>
+                            <constraint firstItem="tie-LX-LhX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dfb-MT-UR3"/>
+                            <constraint firstItem="oFv-ol-0ur" firstAttribute="leading" secondItem="tR2-c1-1fQ" secondAttribute="leading" id="eg8-oK-5Qh"/>
                             <constraint firstItem="tR2-c1-1fQ" firstAttribute="top" secondItem="dby-xo-cVY" secondAttribute="bottom" constant="8" symbolic="YES" id="hdN-wY-2da"/>
                             <constraint firstItem="dby-xo-cVY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i73-O5-5xx"/>
+                            <constraint firstItem="45M-NY-3Bv" firstAttribute="top" secondItem="s7A-Bg-JCF" secondAttribute="top" id="jhN-1D-szA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BUK-qD-JJe" secondAttribute="trailing" constant="-55" id="lce-6X-SuU"/>
+                            <constraint firstItem="tie-LX-LhX" firstAttribute="top" secondItem="tR2-c1-1fQ" secondAttribute="bottom" constant="53" id="mC4-P8-tmP"/>
+                            <constraint firstItem="tie-LX-LhX" firstAttribute="centerX" secondItem="tR2-c1-1fQ" secondAttribute="centerX" id="tnI-hJ-OQh"/>
+                            <constraint firstItem="tie-LX-LhX" firstAttribute="trailing" secondItem="s7A-Bg-JCF" secondAttribute="trailing" id="u9g-w9-Oxe"/>
+                            <constraint firstItem="45M-NY-3Bv" firstAttribute="bottom" secondItem="s7A-Bg-JCF" secondAttribute="bottom" id="uGP-Jb-gCb"/>
                             <constraint firstItem="BUK-qD-JJe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vcP-HF-d9m"/>
                             <constraint firstItem="dby-xo-cVY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="zNK-oo-KGV"/>
                         </constraints>
@@ -79,6 +108,7 @@
                         <outlet property="cityName" destination="dby-xo-cVY" id="gVh-tw-Gjs"/>
                         <outlet property="cityNameLabel" destination="oFv-ol-0ur" id="i9S-nD-RsM"/>
                         <outlet property="cityTemp" destination="DLK-nc-R9n" id="kew-jO-ix8"/>
+                        <outlet property="mymap" destination="45M-NY-3Bv" id="Lod-0j-nfx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
